@@ -1,0 +1,79 @@
+php变量作用域
+变量的作用域是脚本中变量可被引用/使用的部分。
+php有四种不同的变量作用域：
+local
+global
+static
+parameter
+
+Static 作用域
+当一个函数完成时，它的所有变量通常都会被删除。然而，有时候您希望某个局部变量不要被删除。
+要做到这一点，请在您第一次声明变量时使用 static 关键字：
+<?php
+
+function myTest()
+{
+static $x=0;
+echo $x;
+$x++;
+}
+
+myTest();
+myTest();
+myTest();
+
+?> 
+注释：该变量仍然是函数的局部变量。
+
+在 PHP 中有两个基本的输出方式： echo 和 print。
+echo 和 print 区别:
+
+    echo - 可以输出一个或多个字符串
+    print - 只允许输出一个字符串，返回值总为 1
+
+提示：echo 输出的速度比 print 快， echo 没有返回值，print有返回值1。
+
+php定义数组的时候有不同
+$cars=array("Volvo","BMW","Toyota");
+$cars=array('宝马','奥迪','科鲁兹')
+
+<?php
+	$cars = array('宝马','奥迪','克吕兹');
+	echo "我的车是{$cars[1]}";
+?>
+输出的时候需要使用双引号，数组里的值用花括号引上。
+
+php数据类型
+string integer float boolean array object null
+
+PHP var_dump() 函数返回变量的数据类型和值：
+<?php
+$x = 5985;
+var_dump($x);
+echo "<br>";
+$x = -345; // 负数
+var_dump($x);
+echo "<br>";
+$x = 0x8C; // 十六进制数
+var_dump($x);
+echo "<br>";
+$x = 047; // 八进制数
+var_dump($x);
+?>
+
+运行结果
+int(5985)
+int(-345)
+int(140)
+int(39) 
+
+注意： 常量在整个脚本中都可以使用。
+bool define (string $name ,mixed $value [,bool $case_insensitive = false ])
+该函数有三个参数:
+
+    name：必选参数，常量名称，即标志符。
+    value：必选参数，常量的值。
+    case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的。
+
+在 PHP 中，只有一个字符串运算符。
+并置运算符 (.) 用于把两个字符串值连接起来。
